@@ -1,0 +1,15 @@
+---
+# file: handlers/main.yml
+#
+
+- name: restart consul_exporter
+  service: name=consul_exporter state=restarted
+  when: prometheus_use_service|bool
+
+- name: reload consul_exporter
+  service: name=consul_exporter state=reloaded
+  when: prometheus_use_service|bool
+
+- name: stop consul_exporter
+  service: name=consul_exporter state=stopped
+  when: prometheus_use_service|bool

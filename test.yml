@@ -1,0 +1,19 @@
+- hosts: all
+  become: True
+  tasks:
+    - include: 'tasks/main.yml'
+  handlers:
+    - include: 'handlers/main.yml'
+  vars_files:
+    - 'defaults/main.yml'
+
+  vars:
+    prometheus_consul_exporter_opts: "-log.level=debug"
+
+
+
+  #roles:
+  #  - { role: consul,
+  #      consul_is_server: true }
+  ### Consul role (savagegus.consul) does not yet support Ubuntu 12.04, centos6 or debian
+
