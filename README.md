@@ -144,6 +144,7 @@ None.
 - [William Yeh](https://github.com/William-Yeh)
 - [Robbie Trencheny](https://github.com/robbiet480) - contribute an early version of building binaries from Go source code.
 - [Travis Truman](https://github.com/trumant) - contribute an early version of this role.
+- [Musee Ullah](https://github.com/lae) - test with [`savagegus.consul`](https://github.com/savagegus/ansible-consul) role.
 
 ## License
 
