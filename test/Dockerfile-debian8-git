@@ -16,7 +16,7 @@ MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
 ENV PLAYBOOK test.yml
 RUN sed -i -e 's/^\(prometheus_consul_exporter_version:\).*$/\1 git/'  defaults/main.yml
-RUN ansible-playbook-wrapper -vvv
+RUN ansible-playbook-wrapper -vvv --extra-vars "prometheus_consul_exporter_use_systemd=false"
 
 
 

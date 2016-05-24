@@ -46,6 +46,7 @@
 
 - name: install helper utility "gosu"
   include: install-gosu.yml
+  when: not prometheus_consul_exporter_use_systemd|bool
 
 - name: install consul-exporter
   include: install-consul-exporter.yml

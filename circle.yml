@@ -7,28 +7,28 @@ dependencies:
     - docker info
     - docker version
 
-    - docker build  -f test/Dockerfile-ubuntu14.04      -t prometheus_trusty       .
-    - docker build  -f test/Dockerfile-ubuntu12.04      -t prometheus_precise      .
-    - docker build  -f test/Dockerfile-debian8          -t prometheus_jessie       .
-    - docker build  -f test/Dockerfile-debian7          -t prometheus_wheezy       .
-    - docker build  -f test/Dockerfile-centos7          -t prometheus_centos7      .
-    - docker build  -f test/Dockerfile-centos6          -t prometheus_centos6      .
-    - docker build  -f test/Dockerfile-ubuntu14.04-git  -t prometheus_trusty_git   .
-    - docker build  -f test/Dockerfile-debian8-git      -t prometheus_jessie_git   .
-    - docker build  -f test/Dockerfile-centos7-git      -t prometheus_centos7_git  .
+    - docker build  -f test/Dockerfile-ubuntu14.04      -t consul_exporter_trusty       .
+    - docker build  -f test/Dockerfile-ubuntu12.04      -t consul_exporter_precise      .
+    - docker build  -f test/Dockerfile-debian8          -t consul_exporter_jessie       .
+    - docker build  -f test/Dockerfile-debian7          -t consul_exporter_wheezy       .
+    - docker build  -f test/Dockerfile-centos7          -t consul_exporter_centos7      .
+    - docker build  -f test/Dockerfile-centos6          -t consul_exporter_centos6      .
+    - docker build  -f test/Dockerfile-ubuntu14.04-git  -t consul_exporter_trusty_git   .
+    - docker build  -f test/Dockerfile-debian8-git      -t consul_exporter_jessie_git   .
+    - docker build  -f test/Dockerfile-centos7-git      -t consul_exporter_centos7_git  .
 
 
 test:
   override:
-    - docker run  -v $(pwd):/data  prometheus_trusty
-    - docker run  -v $(pwd):/data  prometheus_precise
-    - docker run  -v $(pwd):/data  prometheus_jessie
-    - docker run  -v $(pwd):/data  prometheus_wheezy
-    - docker run  -v $(pwd):/data  prometheus_centos7
-    - docker run  -v $(pwd):/data  prometheus_centos6
-    - docker run  -v $(pwd):/data  prometheus_trusty_git
-    - docker run  -v $(pwd):/data  prometheus_jessie_git
-    - docker run  -v $(pwd):/data  prometheus_centos7_git
+    - docker run  -v $(pwd):/data  consul_exporter_trusty
+    - docker run  -v $(pwd):/data  consul_exporter_precise
+    - docker run  -v $(pwd):/data  consul_exporter_jessie
+    - docker run  -v $(pwd):/data  consul_exporter_wheezy
+    - docker run  -v $(pwd):/data  consul_exporter_centos7
+    - docker run  -v $(pwd):/data  consul_exporter_centos6
+    - docker run  -v $(pwd):/data  consul_exporter_trusty_git
+    - docker run  -v $(pwd):/data  consul_exporter_jessie_git
+    - docker run  -v $(pwd):/data  consul_exporter_centos7_git
 
     - echo "==> Validating the test results..."
     - grep '^consul_up' result-ubuntu14.04

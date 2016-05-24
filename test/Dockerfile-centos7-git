@@ -19,7 +19,7 @@ RUN echo "===> Installing the missing "tar" utility for Docker image..."  && \
 
 ENV PLAYBOOK test.yml
 RUN sed -i -e 's/^\(prometheus_consul_exporter_version:\).*$/\1 git/'  defaults/main.yml
-RUN ansible-playbook-wrapper --extra-vars "prometheus_use_service=False" -vvv
+RUN ansible-playbook-wrapper -vvv
 
 
 

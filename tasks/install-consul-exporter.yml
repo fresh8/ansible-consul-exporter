@@ -67,8 +67,17 @@
 - name: set consul_exporter variables
   copy: src="../files/etc-default-consul_exporter"  dest=/etc/default/consul_exporter
 
+
+- debug: var=prometheus_consul_exporter_use_systemd
+
 - name: copy INIT script to server
   template: src="../templates/consul_exporter.sysvinit.{{ ansible_os_family|lower }}.sh.j2"  dest="/etc/init.d/consul_exporter"  mode="a+x"
+  when: not prometheus_consul_exporter_use_systemd|bool
+
+- name: copy systemd config to server
+  template: src="../templates/consul_exporter.service.j2"  dest="/lib/systemd/system/consul_exporter.service"
+  when: prometheus_consul_exporter_use_systemd
+
 
 - name: set INIT status
   service: name=consul_exporter enabled=yes state=restarted

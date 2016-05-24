@@ -1,5 +1,5 @@
 
-williamyeh.consul_exporter for Ansible Galaxy
+William-Yeh.consul_exporter for Ansible Galaxy
 ============
 
 [![Circle CI](https://circleci.com/gh/William-Yeh/ansible-consul-exporter.svg?style=shield)](https://circleci.com/gh/William-Yeh/ansible-consul-exporter) [![Build Status](https://travis-ci.org/William-Yeh/ansible-consul-exporter.svg?branch=master)](https://travis-ci.org/William-Yeh/ansible-consul-exporter)
@@ -8,16 +8,15 @@ williamyeh.consul_exporter for Ansible Galaxy
 
 ## Summary
 
-Role name in Ansible Galaxy: **[williamyeh.consul_exporter](https://galaxy.ansible.com/williamyeh/consul_exporter/)**
+Role name in Ansible Galaxy: **[William-Yeh.consul_exporter](https://galaxy.ansible.com/William-Yeh/consul_exporter/)**
 
 This Ansible role has the following features for [consul_exporter](https://github.com/prometheus/consul_exporter) (a [Consul](https://github.com/hashicorp/consul) metrics exporter for [Prometheus](http://prometheus.io/)):
 
  - Install specific versions of consul_exporter;
  - Install by compiling from the *master* repo;
- - Handlers for restart/reload/stop events;
- - Bare bone configuration (*real* configuration should be left to user's template files; see **Usage** section below).
+ - Handlers for restart/reload/stop events.
 
-
+NOTE: If you want to install Prometheus itself or other exporters, see **[williamyeh.prometheus](https://github.com/William-Yeh/ansible-prometheus)** for more info.
 
 
 ## Role Variables
@@ -60,10 +59,18 @@ prometheus_consul_exporter_opts
 ```
 
 
+### Optional variables: use systemd or not
+
+If the Linux distributions are equipped with systemd, this role will use this mechanism accordingly. You can disable this (i.e., use traditional SysV-style init script) by defining the variable to false: `prometheus_consul_exporter_use_systemd: false`.
+
+```yaml
+prometheus_consul_exporter_use_systemd
+```
+
 
 ### Optional variables: general settings of Prometheus
 
-This section lists all variables common for all Prometheus servers and exporters. You may have seen them in my **[williamyeh.prometheus](https://galaxy.ansible.com/williamyeh/prometheus/)** role.
+This section lists all variables common for all Prometheus servers and exporters. You may have seen them in my **[williamyeh.prometheus](https://github.com/William-Yeh/ansible-prometheus)** role.
 
 
 User-configurable defaults:
@@ -109,7 +116,7 @@ gosu_version:  1.9
 
 ### Step 1: add role
 
-Add role name `williamyeh.consul_exporter` to your playbook file.
+Add role name `William-Yeh.consul_exporter` to your playbook file.
 
 
 ### Step 2: add variables
@@ -125,7 +132,7 @@ Simple example:
 - hosts: all
   become: True
   roles:
-    - williamyeh.consul_exporter
+    - William-Yeh.consul_exporter
 
   vars:
 

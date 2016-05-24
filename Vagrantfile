@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
         end
 
         # Consul exporter port
-        node.vm.network :forwarded_port, guest: 9107, host: 9107
+        #node.vm.network :forwarded_port, guest: 9107, host: 9107
 
     end
 
